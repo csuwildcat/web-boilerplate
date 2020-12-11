@@ -1,17 +1,19 @@
 {
-  "name": " ",
+  "name": "web-boilerplate",
   "version": "0.0.1",
-  "description": "",
-  "keywords": "",
-  "license": "",
-  "author": "",
+  "description": "Simple Node/HTML project template",
+  "keywords": [
+    "boilerplate"
+  ],
+  "license": "Apache 2",
+  "author": "Daniel Buchner",
   "scripts": {
-    "build": "parcel build index.html",
-    "dev": "parcel index.html --open",
-    "start": "npm run build && npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main"
   },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+  "dependencies": {
+    "spec-up": "0.9.101",
+    "koa": "2.13.0",
+    "koa-router": "9.4.0",
+    "koa-logger": "3.2.1"
   }
 }
