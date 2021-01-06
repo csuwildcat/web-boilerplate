@@ -1,6 +1,6 @@
 {
   "name": "web-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple Node/HTML project template",
   "keywords": [
     "boilerplate"
@@ -14,7 +14,18 @@
   "dependencies": {
     "spec-up": "0.9.101",
     "koa": "2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-logger": "3.2.1",
     "koa-router": "9.4.0",
-    "koa-logger": "3.2.1"
+    "koa-static": "^5.0.0",
+    "fs-extra": "8.1.0",
+    "globby": "11.0.0",
+    "gulp": "^4.0.2",
+    "gulp-bump": "3.2.0",
+    "gulp-concat": "2.6.1",
+    "gulp-connect": "5.7.0",
+    "gulp-run": "1.7.1",
+    "gulp-terser": "1.2.0",
+    "merge-stream":"2.0.0"
   }
 }
