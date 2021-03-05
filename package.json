@@ -18,14 +18,17 @@
     "koa-logger": "3.2.1",
     "koa-router": "9.4.0",
     "koa-static": "^5.0.0",
-    "fs-extra": "8.1.0",
-    "globby": "11.0.0",
-    "gulp": "^4.0.2",
+    "fs-extra": "9.1.0",
+    "globby": "11.0.2",
+    "gulp": "4.0.2",
+    "gulp-run": "1.7.1",
     "gulp-bump": "3.2.0",
     "gulp-concat": "2.6.1",
-    "gulp-connect": "5.7.0",
-    "gulp-run": "1.7.1",
     "gulp-terser": "1.2.0",
-    "merge-stream":"2.0.0"
+    "gulp-connect": "5.7.0",
+    "merge-stream": "2.0.0",
+    "gulp-clean-css": "4.3.0",
+    "gulp-nunjucks-render": "2.2.3",
+    "axios": "0.21.1"
   }
 }
