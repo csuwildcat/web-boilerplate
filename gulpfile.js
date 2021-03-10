@@ -7,9 +7,6 @@ const cleanCSS = require('gulp-clean-css');
 const mergeStreams = require('merge-stream');
 const nunjucksRender = require('gulp-nunjucks-render');
 const axios = require('axios');
-const MarkdownIt = require('markdown-it');
-const markdown = new MarkdownIt({ linkify: true });
-const encoder = require('@root/encoding');
 
 const root = '';
 const compiledJS = root + 'js/compiled/';
@@ -69,7 +66,7 @@ async function renderTemplates() {
     .pipe(nunjucksRender({
       path: [root + 'templates', root + 'templates/partials', root + 'templates/pages'],
       data: {
-        code: code || await getRepoInfo()
+        
       }
     }))
     .pipe(gulp.dest('./'))
