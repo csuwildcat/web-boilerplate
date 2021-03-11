@@ -5,7 +5,7 @@
   "keywords": [
     "boilerplate"
   ],
-  "license": "Apache 2",
+  "license": "Apache-2.0",
   "author": "Daniel Buchner",
   "scripts": {
     "edit": "node -e \"require('spec-up')()\"",
