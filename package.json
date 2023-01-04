@@ -7,12 +7,7 @@
   ],
   "license": "Apache-2.0",
   "author": "Daniel Buchner",
-  "scripts": {
-    "edit": "node -e \"require('spec-up')()\"",
-    "render": "node -e \"require('spec-up')({ nowatch: true })\""
-  },
   "dependencies": {
-    "spec-up": "0.9.101",
     "koa": "2.13.0",
     "koa-body": "^4.2.0",
     "koa-logger": "3.2.1",
