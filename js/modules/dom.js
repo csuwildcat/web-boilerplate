@@ -1,27 +1,25 @@
 
-const createProps = {
-  attributes: (node, attr) => { for (let z in attr) node.setAttribute(z, attr[z]) }
-};
-
 var DOM = {
   ready: new Promise(resolve => {
-    document.addEventListener('DOMContentLoaded', e => resolve(e));
+    document.addEventListener('DOMContentLoaded', e => {
+      document.documentElement.setAttribute('ready', '');
+      resolve(e)
+    });
   }),
-  create(tag, props = {}){
-    let node = document.createElement(tag);
-    for (let z in props) {
-      if (createProps[z]) createProps[z](node, props[z]);
-      else typeof node[z] === 'function' ? node[z](props[z]) : node[z] = props[z];
-    }
-    return node;
-  },
-  skipAnimationFrame: fn => requestAnimationFrame(() => requestAnimationFrame(fn)),
+  query: s => document.querySelector(s),
+  queryAll: s => document.querySelectorAll(s),
+  skipFrame: fn => new Promise(resolve => requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (fn) fn();
+      resolve();
+    })
+  })),
   fireEvent(node, type, options = {}){
     return node.dispatchEvent(new CustomEvent(type, Object.assign({
       bubbles: true
     }, options)))
   },
-  delegateEvent(type, selector, fn, options = {}){
+  addEventDelegate(type, selector, fn, options = {}){
     let listener = e => {
       let match = e.target.closest(selector);
       if (match) fn(e, match);
@@ -29,13 +27,19 @@ var DOM = {
     (options.container || document).addEventListener(type, listener, options);
     return listener;
   },
-  setOptions(node, options = {}){
-    ((node.getAttribute('options') || '').match(/[^\s]+/ig) || []).forEach(option => {
-      options[option] = true;
-    });
-    return node.options = options;
+  removeEventDelegate(type, listener, options = {}){
+    (options.container || document).removeEventListener(type, listener);
   }
 }
+
+document.addEventListener('pointerdown', e => {
+  e.target.setAttribute('pressed', '');
+}, { passive: true });
+
+window.addEventListener('pointerup', e => {
+  DOM.queryAll('[pressed]').forEach(node => node.removeAttribute('pressed'));
+}, { capture: true, passive: true });
+
 
 globalThis.DOM = DOM;
 
