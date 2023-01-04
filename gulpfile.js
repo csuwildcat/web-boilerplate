@@ -79,5 +79,3 @@ gulp.task('watch', () => {
   gulp.watch([root + 'css/**/*', '!' + root + 'css/compiled/**/*'], compileCSS);
   gulp.watch([root + 'templates/**/*'], gulp.parallel(renderTemplates));
 });
-
-repoFetch.then(r => gulp.parallel('build')());
